@@ -205,7 +205,7 @@ Contributions are welcome! Please feel free to submit issues, fork the repositor
 
 ## License
 
-This project is provided for educational and authorized security testing purposes only.
+This project is licensed under a **Custom License - Attribution-NonCommercial**. You may use, modify, and share the project with proper credit, but you may not earn money from it without permission. Contact **megheshkumarsahu@gmail.com** for commercial licensing. See the [LICENSE](LICENSE) file for full terms.
 
 ## Author
 
