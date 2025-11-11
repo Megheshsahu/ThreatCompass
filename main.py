@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# ThreatCompass - Security Reconnaissance Tool
+# Author: Meghesh Sahu (GitHub: @Megheshsahu)
+# Repository: https://github.com/Megheshsahu/ThreatCompass
+# Copyright (c) 2025 Meghesh Sahu. All rights reserved.
+#
+# This software is protected by copyright. Unauthorized removal of attribution
+# or modification of copyright notices is prohibited.
+#
+# Build Hash: 0x4d534832303235  (MS-H-2025)
+# Project ID: TC-1.0-MEGHESH-SAHU
 """
 ThreatCompass Launcher
 Main entry point for the ThreatCompass security reconnaissance tool.

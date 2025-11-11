@@ -1,4 +1,11 @@
-# ReconXpert - Intelligent Attack Surface Mapper & Risk Reporter
+# ThreatCompass - Navigate Your Security Landscape
+# Security Reconnaissance and Vulnerability Assessment Tool
+# Author: Meghesh Sahu | GitHub: https://github.com/Megheshsahu/ThreatCompass
+# Copyright (c) 2025 Meghesh Sahu. All rights reserved.
+# 
+# Project Identifier: TC-DEP-v1.0-MS2025
+# Build Signature: 0x546872656174436f6d70617373
+#
 # Requirements file for all dependencies
 
 # Core networking and HTTP libraries
