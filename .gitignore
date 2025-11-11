@@ -44,6 +44,17 @@ out/
 *.xml
 *.log
 
+# Test files and scans
+*_test/
+test_*/
+watermark_test/
+*.test.html
+*.test.json
+
+# Internal documentation
+GITHUB_PUSH_INSTRUCTIONS.md
+*_INSTRUCTIONS.md
+
 # Sensitive data
 *.key
 *.pem
