@@ -1,151 +1,225 @@
-# 🧭 ThreatCompass
+# ThreatCompass
 
 **Navigate Your Security Landscape**
 
-A professional-grade Python reconnaissance and vulnerability assessment tool that automates security assessments, performs subdomain enumeration, integrates threat intelligence APIs, conducts port scanning, and generates comprehensive reports.
+ThreatCompass is a professional-grade Python security reconnaissance and vulnerability assessment tool designed for penetration testers, security researchers, and bug bounty hunters. It automates the entire reconnaissance workflow from subdomain discovery to vulnerability detection with comprehensive reporting.
 
-## 🚀 Features
+## Features
 
-- **🔍 Subdomain Enumeration** - Discover subdomains with DNS bruteforcing
-- **🌐 Port Scanning** - Full port scanning with Nmap integration
-- **🛡️ Threat Intelligence** - Shodan & Censys API integration
-- **🐛 CVE Detection** - Automated vulnerability lookups with CVSS scoring
-- **🎯 Risk Assessment** - Intelligent risk scoring and categorization
-- **📊 Comprehensive Reports** - Beautiful HTML and JSON reports
-- **🥷 Stealth Mode** - Evasion techniques to avoid detection
-- **⚡ Multi-threaded** - Concurrent scanning for speed
+- **Dynamic Subdomain Enumeration** - Automated DNS bruteforcing with 56+ common subdomains
+- **Advanced Port Scanning** - Nmap integration with service version detection and OS fingerprinting
+- **Threat Intelligence Integration** - Real-time queries to Shodan and Censys databases
+- **CVE Vulnerability Detection** - Automated NVD API lookups with CVSS risk scoring
+- **Multi-Phase Reconnaissance** - 5-phase scanning workflow for complete attack surface mapping
+- **Stealth Scanning Capabilities** - Fragmented packets and timing controls to evade IDS/IPS
+- **Professional Report Generation** - HTML and JSON formats with risk categorization
+- **Concurrent Multi-Target Scanning** - Thread-based parallel processing for efficiency
 
-## 📦 Installation
+## Installation
+
+### Prerequisites
+- Python 3.9 or higher
+- Nmap (highly recommended for full functionality)
 
 ### Quick Install
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Megheshsahu/ThreatCompass.git
+cd ThreatCompass
+```
+
+2. Install Python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-### External Dependencies
-**Nmap (Required for scanning)**
-- Windows: Download from https://nmap.org/download.html
-- Linux: `sudo apt-get install nmap`
-- macOS: `brew install nmap`
+3. Install Nmap (platform-specific):
 
-## 🎯 Usage
+**Windows:**
+- Download from https://nmap.org/download.html
+- Add to PATH environment variable
+
+**Linux:**
+```bash
+sudo apt-get install nmap  # Debian/Ubuntu
+sudo yum install nmap      # CentOS/RHEL
+```
+
+**macOS:**
+```bash
+brew install nmap
+```
+
+## Usage
+
+Run the tool:
 
 ### Basic Scan
 ```bash
 python main.py --target example.com
 ```
 
-### Full Reconnaissance
+### Full Reconnaissance with All Features
 ```bash
 python main.py --target example.com --enumerate-subdomains --threat-intel --out results
 ```
 
-### Stealth Scan
+### Stealth Scan (Evasion Mode)
 ```bash
 python main.py --target example.com --stealth --out stealth_results
 ```
 
-### Multiple Targets
+### Scan Multiple Targets
 ```bash
 python main.py --target-list targets.txt --out batch_results
 ```
 
-### Deep Scan with Vulnerability Detection
+### Deep Vulnerability Scan
 ```bash
-python main.py --target example.com --enumerate-subdomains --threat-intel --nmap-args "-p- -sV -sC -O -A --script=vuln" --out deep_scan
+python main.py --target example.com \
+  --enumerate-subdomains \
+  --threat-intel \
+  --nmap-args "-p- -sV -sC -O -A --script=vuln" \
+  --out deep_scan
 ```
 
-## 📖 Options
+## Configuration
 
-```
---target TARGET              Single target (domain or IP)
---target-list FILE           File with multiple targets
---enumerate-subdomains       Enable subdomain enumeration
---threat-intel               Query Shodan/Censys for threat intelligence
---stealth                    Use stealth scanning techniques
---nmap-args ARGS             Custom Nmap arguments
---top-ports N                Scan only top N ports (faster)
---out FOLDER                 Output directory (default: out)
---format json,html           Report format
---shodan-api-key KEY         Shodan API key
---censys-api-id ID           Censys API ID
---censys-api-secret SECRET   Censys API secret
---nvd-api-key KEY            NVD API key for CVE lookups
-```
+### API Keys (Optional but Recommended)
 
-## 🔑 API Keys (Optional but Recommended)
+ThreatCompass integrates with external threat intelligence services for enhanced results:
 
-### Shodan
-1. Sign up at https://account.shodan.io/
-2. Get your API key
+**Shodan API:**
+1. Create account at https://account.shodan.io/
+2. Get API key from dashboard
 3. Use with: `--shodan-api-key YOUR_KEY`
 
-### Censys
-1. Sign up at https://search.censys.io/account/api
-2. Get API ID and Secret
+**Censys API:**
+1. Register at https://search.censys.io/account/api
+2. Obtain API ID and Secret
 3. Use with: `--censys-api-id ID --censys-api-secret SECRET`
 
-### NVD
-1. Request API key at https://nvd.nist.gov/developers/request-an-api-key
+**NVD (CVE Database):**
+1. Request key at https://nvd.nist.gov/developers/request-an-api-key
 2. Use with: `--nvd-api-key YOUR_KEY`
 
-## 📊 Example Output
+## Command-Line Options
 
-ThreatCompass generates two types of reports:
+```
+Targeting:
+  --target TARGET              Single target (domain or IP address)
+  --target-list FILE           File containing multiple targets (one per line)
 
-- **HTML Report** - Beautiful, interactive report with risk visualization
-- **JSON Report** - Machine-readable data for automation
+Reconnaissance:
+  --enumerate-subdomains       Enable subdomain enumeration via DNS bruteforce
+  --no-subdomains              Disable subdomain enumeration
+  --threat-intel               Query Shodan/Censys for threat intelligence
+  --no-threat-intel            Skip threat intelligence gathering
 
-Reports include:
-- Target information and WHOIS data
-- Discovered subdomains
-- Open ports and services
-- Detected vulnerabilities (CVEs)
-- Risk scores and severity levels
-- Threat intelligence data
-- Recommended actions
+Scanning:
+  --nmap-args ARGS             Custom Nmap arguments (default: -sV -sC -O -T4)
+  --top-ports N                Scan only top N ports instead of full scan
+  --nmap-timeout SECONDS       Nmap scan timeout in seconds (default: 900)
+  --stealth                    Enable stealth mode with packet fragmentation
 
-## 🛠️ Technical Details
+API Integration:
+  --shodan-api-key KEY         Shodan API key for enhanced threat data
+  --censys-api-id ID           Censys API ID
+  --censys-api-secret SECRET   Censys API secret
+  --nvd-api-key KEY            NVD API key for CVE lookups
 
-**Built With:**
-- Python 3.9+
-- Nmap for port scanning
-- Shodan & Censys APIs for threat intelligence
-- NVD API for CVE lookups
+Output:
+  --out DIRECTORY              Output directory for reports (default: out)
+  --format FORMAT              Report format: json, html, or both (default: json,html)
+  --workers N                  Number of concurrent target workers (default: 4)
+```
+
+## Output & Reports
+
+ThreatCompass generates comprehensive reports in two formats:
+
+**HTML Report:**
+- Interactive, color-coded vulnerability dashboard
+- Risk severity visualization (Critical, High, Medium, Low)
+- Service and port details with CVE mappings
+- Threat intelligence data integration
+- Recommended remediation actions
+
+**JSON Report:**
+- Machine-readable structured data
+- API integration ready
+- Automated pipeline compatible
+- Complete scan metadata and findings
+
+Report Contents:
+- Target profile (DNS, WHOIS, IP resolution)
+- Discovered subdomains with status
+- Open ports and running services
+- Detected vulnerabilities with CVSS scores
+- Threat intelligence findings
+- Risk assessment and prioritization
+
+## Technical Architecture
+
+**Reconnaissance Phases:**
+1. **Target Profiling** - DNS resolution, WHOIS lookup, subdomain enumeration
+2. **Threat Intelligence** - Shodan and Censys database queries
+3. **Active Scanning** - Nmap port scanning with service detection
+4. **Vulnerability Assessment** - CVE lookups and CVSS scoring
+5. **Report Generation** - HTML and JSON output with risk categorization
+
+**Core Technologies:**
+- Python 3.9+ with type hints
+- Nmap for network scanning
+- DNSPython for DNS operations
+- Shodan & Censys Python SDKs
+- NVD API for CVE data
+- Jinja2 for report templating
 - Multi-threading for performance
-- Jinja2 for report generation
 
-**Scanning Phases:**
-1. **Target Profiling** - DNS/WHOIS and subdomain enumeration
-2. **Threat Intelligence** - Shodan/Censys queries
-3. **Active Scanning** - Nmap port and service detection
-4. **Vulnerability Assessment** - CVE lookups and risk scoring
-5. **Report Generation** - HTML and JSON output
+## Use Cases
 
-## 🎓 Use Cases
+- **Penetration Testing** - Initial reconnaissance phase
+- **Bug Bounty Hunting** - Asset discovery and attack surface mapping
+- **Security Audits** - Comprehensive infrastructure assessment
+- **Red Team Operations** - Target profiling and intelligence gathering
+- **Vulnerability Research** - CVE correlation and risk analysis
+- **Compliance Reporting** - Security posture documentation
 
-- **Bug Bounty Hunting** - Discover attack surface
-- **Penetration Testing** - Initial reconnaissance
-- **Security Audits** - Comprehensive assessments
-- **Asset Discovery** - Map your infrastructure
-- **Compliance** - Security posture reporting
+## Legal Disclaimer
 
-## ⚠️ Legal Disclaimer
+**IMPORTANT:** This tool is designed for authorized security testing only. 
 
-**IMPORTANT:** Only scan systems you own or have explicit permission to test. Unauthorized scanning may be illegal in your jurisdiction. Use responsibly and ethically.
+⚠️ You must have explicit permission to scan any target systems. Unauthorized scanning may be illegal in your jurisdiction and could result in criminal charges. The authors assume no liability for misuse or damage caused by this program.
 
-## 📝 License
+**Use responsibly and ethically.**
 
-This project is for educational and authorized security testing purposes only.
+## Contributing
 
-## 🤝 Contributing
+Contributions are welcome! Please feel free to submit issues, fork the repository, and create pull requests for:
+- Bug fixes
+- New features
+- Documentation improvements
+- Performance optimizations
 
-Contributions, issues, and feature requests are welcome!
+## License
 
-## 👨‍💻 Author
+This project is provided for educational and authorized security testing purposes only.
 
-Created as a professional security reconnaissance tool for ethical security testing and research.
+## Author
+
+Developed by Meghesh Sahu
+- GitHub: [@Megheshsahu](https://github.com/Megheshsahu)
+
+## Acknowledgments
+
+ThreatCompass integrates and builds upon several open-source tools and APIs:
+- Nmap - Network scanning framework
+- Shodan - Internet intelligence platform
+- Censys - Attack surface management
+- NVD - National Vulnerability Database
 
 ---
 
-**ThreatCompass** - Navigate Your Security Landscape 🧭
+**ThreatCompass** - Navigate Your Security Landscape
