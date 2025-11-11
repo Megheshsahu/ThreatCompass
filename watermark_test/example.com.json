@@ -1,0 +1,62 @@
+{
+  "target": "example.com",
+  "resolved_ips": [
+    "23.220.75.245",
+    "23.192.228.80",
+    "23.192.228.84",
+    "23.215.0.136",
+    "23.215.0.138",
+    "23.220.75.232",
+    "2600:1408:ec00:36::1736:7f24",
+    "2600:1408:ec00:36::1736:7f31",
+    "2600:1406:5e00:6::17ce:bc12",
+    "2600:1406:5e00:6::17ce:bc1b",
+    "2600:1406:bc00:53::b81e:94c8",
+    "2600:1406:bc00:53::b81e:94ce"
+  ],
+  "subdomains": [],
+  "shodan_data": [],
+  "whois_summary": "Domain: EXAMPLE.COM | Registrar: RESERVED-Internet Assigned Numbers Authority | Created: 1995-08-14 04:00:00 | Expires: 2026-08-13 04:00:00",
+  "os_fingerprint": "Linux 2.6.18 - 2.6.22 (100% accuracy)",
+  "services": [
+    {
+      "port": 80,
+      "proto": "tcp",
+      "service": "http",
+      "product": "AkamaiGHost",
+      "version": null,
+      "extrainfo": "Akamai's HTTP Acceleration/Mirror service",
+      "os_info": null,
+      "web_tech": "Example Domain",
+      "cves": [],
+      "risk_score": 0.0,
+      "risk_label": "Informational"
+    },
+    {
+      "port": 443,
+      "proto": "tcp",
+      "service": "http",
+      "product": "AkamaiGHost",
+      "version": null,
+      "extrainfo": "Akamai's HTTP Acceleration/Mirror service",
+      "os_info": null,
+      "web_tech": "title: Example Domain",
+      "cves": [],
+      "risk_score": 0.0,
+      "risk_label": "Informational"
+    }
+  ],
+  "key_findings": [
+    "No high-severity issues detected (based on available data)"
+  ],
+  "errors": [],
+  "started_at": "2025-11-11T18:58:29.262801+00:00",
+  "finished_at": "2025-11-11T19:05:37.482327+00:00",
+  "_metadata": {
+    "tool": "ThreatCompass",
+    "author": "Megheshsahu",
+    "repository": "https://github.com/Megheshsahu",
+    "version": "1.0",
+    "generated_by": "ThreatCompass by Megheshsahu"
+  }
+}
