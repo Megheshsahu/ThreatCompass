@@ -1,62 +1,33 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
-.Python
-env/
-.venv/
-venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
-venv_*/
-.venv/
+venv/
+env/
+ENV/
 
 # IDE
 .vscode/
 .idea/
 *.swp
-*.swo
-*~
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Project specific
+# Scan outputs
 out/
-*.xml
-*.log
-
-# Test files and scans
+*_scan/
 *_test/
-test_*/
-watermark_test/
-*.test.html
-*.test.json
 
-# Internal documentation
-GITHUB_PUSH_INSTRUCTIONS.md
-*_INSTRUCTIONS.md
+# Logs
+*.log
+*.xml
 
-# Sensitive data
+# Sensitive
 *.key
 *.pem
 config.json
+api_keys.txt
 secrets.json
