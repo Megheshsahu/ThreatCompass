@@ -1,0 +1,18 @@
+# ReconXpert - Minimal Requirements
+# Essential dependencies only
+
+# Core HTTP and networking
+requests>=2.31.0
+
+# DNS resolution
+dnspython>=2.4.0
+
+# Domain WHOIS lookup  
+python-whois>=0.8.0
+
+# HTML template rendering
+jinja2>=3.1.0
+
+# Threat intelligence APIs (optional)
+shodan>=1.30.0
+censys>=2.2.0

@@ -1,0 +1,4 @@
+example.com
+httpbin.org
+jsonplaceholder.typicode.com
+
