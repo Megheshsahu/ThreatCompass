@@ -1,6 +1,5 @@
 # ThreatCompass
 
-**Navigate Your Security Landscape**
 
 ThreatCompass is a professional-grade Python security reconnaissance and vulnerability assessment tool designed for penetration testers, security researchers, and bug bounty hunters. It automates the entire reconnaissance workflow from subdomain discovery to vulnerability detection with comprehensive reporting.
 
@@ -222,4 +221,3 @@ ThreatCompass integrates and builds upon several open-source tools and APIs:
 
 ---
 
-**ThreatCompass** - Navigate Your Security Landscape
